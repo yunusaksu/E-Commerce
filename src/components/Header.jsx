@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from '../redux/slices/basketSlice';
-
+import logo from '/src/images/logo.png';
 
 function Header() {
 
@@ -33,7 +33,7 @@ function Header() {
     return (
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <div className='flex-row'>
-                <img onClick={() => navigate("/")} className='logo' src="./src/images/logo.png" />
+                <img onClick={() => navigate("/")} className='logo' src={logo} />
                 <p className='logo-text'>Mustermann GmbH</p>
             </div>
             <div className='flex-row'>
