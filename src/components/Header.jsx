@@ -11,7 +11,7 @@ import logo from '/images/logo.png';
 
 function Header() {
 
-    const [theme, setTheme] = useState(false)
+    const [theme, setTheme] = useState(true)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
@@ -21,11 +21,11 @@ function Header() {
     const changeTheme = () => {
         const root = document.getElementById("root")
         if (theme) {
-            root.style.backgroundColor = "black";
+            root.style.backgroundColor = "#333333";
             root.style.color = "#fff"
         } else {
             root.style.backgroundColor = "#fff";
-            root.style.color = "black"
+            root.style.color = "#333333"
         }
         setTheme(!theme);
     }

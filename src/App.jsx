@@ -49,7 +49,7 @@ function App() {
                   <img style={{ marginRight: '5px' }} src={product.image} width={50} height={50} alt="" />
                   <p style={{ width: '320px', marginRight: '5px' }}>{product.title} ({product.count})</p>
                   <p style={{ fontWeight: 'bold', marginRight: '10px' }}>{product.price} $</p>
-                  <button onClick={() => deleteItem(product)} style={{ padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(186,76,76)', border: 'none', color: '#fff', width: '50px' }}>Delete</button>
+                  <button onClick={() => deleteItem(product)} className='deleteButton' >Delete</button>
                 </div>
               )
             })

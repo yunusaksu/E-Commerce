@@ -25,3 +25,16 @@ body {
 .drawer {
     width: 500px !important;
 }
+
+.deleteButton {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(186, 76, 76);
+    border: none;
+    color: #fff;
+    width: 50px;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+}
