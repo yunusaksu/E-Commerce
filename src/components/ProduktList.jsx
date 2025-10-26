@@ -6,7 +6,7 @@ import Product from './Product'
 function ProduktList() {
 
     const dispatch = useDispatch()
-    const { products } = useSelector((store) => store.product);
+    const { products, searchTerm } = useSelector((store) => store.product);
     console.log(products)
 
 
@@ -14,11 +14,15 @@ function ProduktList() {
         dispatch(getAllProducts());
     }, [])
 
+    // Search filter
+    const filteredProducts = products.filter(product =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className='flex-row' style={{ flexWrap: 'wrap', marginTop: '25px' }}>
             {
-                products && products.map((product) => (
+                filteredProducts && filteredProducts.map((product) => (
                     <Product key={product.id} product={product} />
                 ))
             }

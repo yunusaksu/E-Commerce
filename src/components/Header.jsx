@@ -8,6 +8,7 @@ import Badge from '@mui/material/Badge';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from '../redux/slices/basketSlice';
 import logo from '/images/logo.png';
+import { setSearchTerm } from '../redux/slices/productSlice';
 
 function Header() {
 
@@ -17,6 +18,12 @@ function Header() {
 
     const { products } = useSelector((store) => store.basket)
 
+
+    const searchTerm = useSelector(state => state.product.searchTerm);
+
+    const handleSearch = (e) => {
+        dispatch(setSearchTerm(e.target.value));
+    }
 
     const changeTheme = () => {
         const root = document.getElementById("root")
@@ -37,8 +44,8 @@ function Header() {
                 <p className='logo-text'>Mustermann GmbH</p>
             </div>
             <div className='flex-row'>
-                <input className='search-input' type="text" placeholder='Suchen' />
-                <div>
+                <input className='search-input' value={searchTerm} onChange={handleSearch} type="text" placeholder='Suchen' />
+                <div className='flex-row'>
 
                     {theme ? <FaMoon className='icon' onClick={changeTheme} /> : <CiLight className='icon' onClick={changeTheme} />}
                     <Badge onClick={() => dispatch(setDrawer())} badgeContent={products.length} color="error">

@@ -4,7 +4,8 @@ import axios from 'axios';
 const initialState = {
     products: [],
     selectedProduct: {},
-    loading: false
+    loading: false,
+    searchTerm: ''
 }
 
 const BASE_URL = "https://fakestoreapi.com";
@@ -20,6 +21,9 @@ export const productSlice = createSlice({
     reducers: {
         setSelectedProduct: (state, action) => {
             state.selectedProduct = action.payload
+        },
+        setSearchTerm: (state, action) => {
+            state.searchTerm = action.payload; // search input ile güncellenecek
         }
     },
     extraReducers: (builder) => {
@@ -34,6 +38,6 @@ export const productSlice = createSlice({
 })
 
 
-export const { setSelectedProduct } = productSlice.actions
+export const { setSelectedProduct, setSearchTerm } = productSlice.actions
 
 export default productSlice.reducer
